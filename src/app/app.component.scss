@@ -4,12 +4,9 @@ $main-familly-font: Verdana, Geneva, Tahoma, sans-serif;
 
 // ********** ALL ***************
 
-* {
-    font-family: $main-familly-font;
-    box-sizing: border-box;
-    padding: 0;
-    list-style: none;
-    scroll-behavior: smooth;
+h1 {
+    text-align: center;
+    margin: 24px;
 }
 
 

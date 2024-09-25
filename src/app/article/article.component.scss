@@ -1,10 +1,11 @@
 // /******* card varables */
 
-$backgroundColorCard : rgb(219, 219, 213);
+$backgroundColorCard : rgb(233, 223, 214);
 $borderRadiusCard : 10px;
 $widthArticle : 25%;
-$paddingArticle : 15px;
-$boxShadowArticle: 0px 4px 9px 3px #767472;
+$paddingArticle : 18px;
+$boxShadowArticle: 0px 4px 9px 3px #babdc0;
+$marginArticle: 20px auto;
 
 // ********************************
 
@@ -15,12 +16,14 @@ $boxShadowArticle: 0px 4px 9px 3px #767472;
     $backgroundColorCard,
     $borderRadiusCard,
     $paddingArticle,
-    $boxShadowArticle
+    $marginArticle,
+    $boxShadowArticle,
 ) {
     width: $widthArticle;
     background-color: $backgroundColorCard;
     border-radius: $borderRadiusCard;
     padding: $paddingArticle;
+    margin: $marginArticle;
     box-shadow: $boxShadowArticle;
 }
 
@@ -32,13 +35,15 @@ article {
 
     @include myArticleCard(
         ($widthArticle),
-        $backgroundColorCard,
-        $borderRadiusCard,
-        $paddingArticle,
-        $boxShadowArticle,
+        ($backgroundColorCard),
+        ($borderRadiusCard),
+        ($paddingArticle),
+        ($marginArticle),
+        ($boxShadowArticle),
     )
 }
 
 article h2 {
     text-align: center;
+    margin: 6px 0 12px;
 }
