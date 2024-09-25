@@ -1,0 +1,44 @@
+// /******* card varables */
+
+$backgroundColorCard : rgb(219, 219, 213);
+$borderRadiusCard : 10px;
+$widthArticle : 25%;
+$paddingArticle : 15px;
+$boxShadowArticle: 0px 4px 9px 3px #767472;
+
+// ********************************
+
+// *********** mixin **************
+
+@mixin myArticleCard(
+    $widthArticle,
+    $backgroundColorCard,
+    $borderRadiusCard,
+    $paddingArticle,
+    $boxShadowArticle
+) {
+    width: $widthArticle;
+    background-color: $backgroundColorCard;
+    border-radius: $borderRadiusCard;
+    padding: $paddingArticle;
+    box-shadow: $boxShadowArticle;
+}
+
+// *****************************************
+
+article {
+    display: flex;
+    flex-direction: column;
+
+    @include myArticleCard(
+        ($widthArticle),
+        $backgroundColorCard,
+        $borderRadiusCard,
+        $paddingArticle,
+        $boxShadowArticle,
+    )
+}
+
+article h2 {
+    text-align: center;
+}
