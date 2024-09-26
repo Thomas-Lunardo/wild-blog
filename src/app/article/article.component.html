@@ -1,4 +1,15 @@
-<article>
-    <h2>{{ title }}</h2>
-    <p>{{ paragraph }}</p>
-</article>
+  <div class="article-container">
+    <button (click)="togglePublication()" class="btn-published">
+      {{ article1.isPublished ? "Publier l'article" : "Dépublier l'article" }}
+    </button>
+
+    @if (article1.isPublished) {
+    <article>
+      <img [src]="article1.image" alt="photo de {{ article1.title }}" />
+      <h2>{{ article1.title }}</h2>
+      <p>{{ article1.content }}</p>
+      <input type="text" [(ngModel)]="article1.comment" />
+      <p>{{ article1.comment }}</p>
+    </article>
+    }
+  </div>
