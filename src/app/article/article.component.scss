@@ -1,5 +1,7 @@
 // /******* card varables */
 
+// **** CARD **********
+
 $backgroundColorCard : rgb(233, 223, 214);
 $borderRadiusCard : 10px;
 $widthArticle : 25%;
@@ -7,9 +9,21 @@ $paddingArticle : 18px;
 $boxShadowArticle: 0px 4px 9px 3px #babdc0;
 $marginArticle: 20px auto;
 
+// ***** BUTTON *******
+
+$widthButton : 90%;
+$backgroundColorButton : rgb(44, 19, 85);
+$colorButton : rgb(248, 243, 243);
+$borderRadiusButton : 3px;
+$paddingButton : 3px 10px;
+$marginButton : 8px auto;
+$heightButton : 2em;
+
 // ********************************
 
 // *********** mixin **************
+
+// **** ARTICLE **********
 
 @mixin myArticleCard(
     $widthArticle,
@@ -27,7 +41,37 @@ $marginArticle: 20px auto;
     box-shadow: $boxShadowArticle;
 }
 
+// ***** BUTTON *******
+
+@mixin myButtonCard(
+    $widthButton,
+    $backgroundColorButton,
+    $colorButton,
+    $borderRadiusButton,
+    $paddingButton,
+    $marginButton,
+    $heightBtn,
+) {
+    width: $widthButton;
+    background-color: $backgroundColorButton;
+    color: $colorButton;
+    border-radius: $borderRadiusButton;
+    padding: $paddingButton;
+    margin: $marginButton;
+    height: $heightButton;
+}
+
+
+// ********************************
+
 // *****************************************
+
+.article-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 article {
     display: flex;
@@ -43,7 +87,41 @@ article {
     )
 }
 
+article img {
+    border-radius: $borderRadiusButton;
+    box-shadow: $boxShadowArticle;
+    margin-bottom: 12px;
+}
+
 article h2 {
     text-align: center;
-    margin: 6px 0 12px;
+    margin: 6px 0 18px;
+}
+
+article p {
+    line-height: 1.3em;
+}
+
+article input {
+    border-radius: 5px;
+    height: 2em;
+    margin: 20px;
+}
+
+.btn-published {
+    transition: all 0.6s ease-in-out;
+
+    @include myButtonCard(
+        ($widthArticle),
+        ($backgroundColorCard),
+        ($borderRadiusCard),
+        ($paddingArticle),
+        ($marginArticle),
+        ($boxShadowArticle),
+        ($heightButton)
+    );
+
+    &:hover {
+        transform: scale(1.2);
+    }
 }
