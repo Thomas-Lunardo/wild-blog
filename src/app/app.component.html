@@ -1,8 +1,25 @@
 <main class="main">
   <div class="content">
-      <h1>{{ title }}</h1>
+    <h1>{{ title }}</h1>
   </div>
-  <div>
-    <app-article></app-article>
+    <div>
+    <div class="article-container">
+        @for (article of articles; track $index) {
+        @if (article.isPublished) {
+            <article [ngClass]="{'popular-article': article.likes > 100}">
+              <img [src]="article.image" alt="photo de {{ article.title }}" />
+              <h2 [ngStyle]="{'color': article.likes > 150 ? 'green' : 'black'}">{{ article.title }}</h2>
+              <h3>Par {{ article.author }}</h3>
+              <p>{{ article.content }}</p>
+              <p>Commentaire :</p>
+              <p>{{ article.comment }}</p>
+              <hr>
+              <p>Likes : {{ article.likes }}</p>
+            </article>
+          }
+        } @empty {
+          <p>Aucun article disponible</p>
+        }
+    </div>
   </div>
 </main>
