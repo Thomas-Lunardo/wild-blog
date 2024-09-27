@@ -98,8 +98,22 @@ article h2 {
     margin: 6px 0 18px;
 }
 
+article h3 {
+    text-align: center;
+    margin: 6px 0 18px;
+    font-style: italic;
+}
+
 article p {
     line-height: 1.3em;
+}
+
+article hr {
+    margin-top: 25px;
+}
+
+article label {
+    margin-top: 23px;
 }
 
 article input {
