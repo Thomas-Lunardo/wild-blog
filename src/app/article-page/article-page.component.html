@@ -1,4 +1,7 @@
-  <div class="article-container">
+<div>
+</div>
+
+<div class="article-container">
     <button (click)="togglePublication()" class="btn-published">
       {{ article1.isPublished ? "Publier l'article" : "Dépublier l'article" }}
     </button>
@@ -7,6 +10,7 @@
     @if (article1.isPublished) {
     <article>
       <img [src]="article1.image" alt="photo de {{ article1.title }}" />
+      <h2>L'id de l'article : {{articleId}}</h2>
       <h2>{{ article1.title }}</h2>
       <h3>{{ article1.author }}</h3>
       <p>{{ article1.content }}</p>

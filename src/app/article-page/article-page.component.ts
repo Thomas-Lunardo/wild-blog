@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 interface Article {
   title: string;
@@ -11,14 +12,21 @@ interface Article {
 }
 
 @Component({
-  selector: 'app-article',
+  selector: 'app-article-page',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './article.component.html',
-  styleUrl: './article.component.scss'
+  templateUrl: './article-page.component.html',
+  styleUrl: './article-page.component.scss'
 })
+export class ArticlePageComponent {
+  route: ActivatedRoute = inject(ActivatedRoute);
+  articleId!: number;
 
-export class ArticleComponent {
+  ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.articleId = Number(params.get('id'));
+    });
+  }
 
   article1: Article = {
     title: 'J\'voulais juste un mac morning',
@@ -29,11 +37,8 @@ export class ArticleComponent {
     comment: ''
   }
 
-  sayMyName(): void {
-    alert("Say my name");
-  }
-
   togglePublication(): void {
     this.article1.isPublished = !this.article1.isPublished;
   }
+
 }

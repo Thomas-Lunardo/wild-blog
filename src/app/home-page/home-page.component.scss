@@ -1,3 +1,4 @@
+
 // /******* card varables */
 
 // **** CARD **********
@@ -7,7 +8,7 @@ $borderRadiusCard : 10px;
 $widthArticle : 25%;
 $paddingArticle : 18px;
 $boxShadowArticle: 0px 4px 9px 3px #babdc0;
-$marginArticle: 20px auto;
+$marginArticle: 20px 3em;
 
 // ***** BUTTON *******
 
@@ -68,14 +69,19 @@ $heightButton : 2em;
 
 .article-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 article {
     display: flex;
     flex-direction: column;
+    transition: all 0.6s ease-in-out;
+
+    &:hover {
+        transform: scale(1.02);
+    }
 
     @include myArticleCard(
         ($widthArticle),
@@ -91,6 +97,15 @@ article img {
     border-radius: $borderRadiusButton;
     box-shadow: $boxShadowArticle;
     margin-bottom: 12px;
+    opacity: 80%;
+    width: 75%;
+    margin: 0 auto 18px;
+}
+
+article a {
+    text-align: center;
+    margin-bottom: 0.5em;
+    font-size: 2em;
 }
 
 article h2 {
@@ -106,6 +121,7 @@ article h3 {
 
 article p {
     line-height: 1.3em;
+    margin: 12px auto;
 }
 
 article hr {
@@ -139,3 +155,9 @@ article input {
         transform: scale(1.2);
     }
 }
+
+.popular-article {
+    font-size: 1.3em;
+    text-shadow: 2px 2px 5px gray;
+    font-weight: bold;
+  }
