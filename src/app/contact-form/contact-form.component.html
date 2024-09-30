@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()">
+    <fieldset>
+        <label for="lastname">Nom</label>
+        <input id="lastname" name="lastname" type="text" required minlength="2">
+    </fieldset>
+    <fieldset>
+        <label for="firstname">Prénom</label>
+        <input id="firstname" name="firstname" type="text" required minlength="2">
+    </fieldset>
+    <fieldset>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+    </fieldset>
+    <fieldset>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" type="text" required minlength="20" row="4" cols="50"></textarea>
+    </fieldset>
+
+    <button type="reset">Restaurer</button>
+    <button type="submit">Envoyer</button>
+</form>
