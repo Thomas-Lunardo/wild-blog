@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 interface Article {
   title: string;
@@ -18,6 +19,14 @@ interface Article {
   styleUrl: './article-page.component.scss'
 })
 export class ArticlePageComponent {
+  route: ActivatedRoute = inject(ActivatedRoute);
+  articleId!: number;
+
+  ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.articleId = Number(params.get('id'));
+    });
+  }
 
   article1: Article = {
     title: 'J\'voulais juste un mac morning',

@@ -2,21 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomePageComponent } from "./home-page/home-page.component";
 import { ArticlePageComponent } from './article-page/article-page.component';
-
-interface Article {
-  title: string;
-  author: string;
-  content: string;
-  image: string;
-  isPublished: boolean,
-  comment: string,
-  likes: number
-}
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ArticlePageComponent, CommonModule, HomePageComponent],
+  imports: [ArticlePageComponent, CommonModule, HomePageComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
