@@ -29,7 +29,7 @@ export class AppComponent {
       title: 'Angular 16: Les nouveautés', 
       author: 'Alice', 
       content: 'Les nouveautés d\'Angular 16 incluent...', 
-      image: 'https://pbs.twimg.com/profile_images/1721593504118493184/UzPnGWvZ_400x400.jpg',
+      image: 'https://via.placeholder.com/150x150',
       isPublished: true, 
       comment: '', 
       likes: 120 
@@ -38,7 +38,7 @@ export class AppComponent {
       title: 'Développer une API REST', 
       author: 'Bob', 
       content: 'Développer une API REST nécessite...', 
-      image: 'https://via.placeholder.com/350x150',
+      image: 'https://via.placeholder.com/150x150',
       isPublished: false, 
       comment: '', 
       likes: 75 
@@ -47,7 +47,7 @@ export class AppComponent {
       title: 'Pourquoi TypeScript est essentiel ?', 
       author: 'Charlie', 
       content: 'TypeScript apporte de la robustesse...', 
-      image: 'https://www.datocms-assets.com/48401/1628645197-learn-typescript.png',
+      image: 'https://via.placeholder.com/150x150',
       isPublished: true, 
       comment: '', 
       likes: 200 
@@ -56,7 +56,7 @@ export class AppComponent {
       title: 'Pourquoi TypeScript est essentiel ?', 
       author: 'Charlie', 
       content: 'TypeScript apporte de la robustesse...', 
-      image: 'https://via.placeholder.com/350x150',
+      image: 'https://via.placeholder.com/150x150',
       isPublished: true, 
       comment: '', 
       likes: 140 
@@ -65,7 +65,7 @@ export class AppComponent {
       title: 'Pourquoi TypeScript est essentiel ?', 
       author: 'Charlie', 
       content: 'TypeScript apporte de la robustesse...', 
-      image: 'https://via.placeholder.com/350x150',
+      image: 'https://via.placeholder.com/150x150',
       isPublished: true, 
       comment: '', 
       likes: 80 
@@ -74,7 +74,7 @@ export class AppComponent {
       title: 'Pourquoi TypeScript est essentiel ?', 
       author: 'Charlie', 
       content: 'TypeScript apporte de la robustesse...', 
-      image: 'https://via.placeholder.com/350x150',
+      image: 'https://via.placeholder.com/150x150',
       isPublished: true, 
       comment: '', 
       likes: 200 
