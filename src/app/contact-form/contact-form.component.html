@@ -1,21 +1,127 @@
-<form (ngSubmit)="onSubmit()">
-    <fieldset>
-        <label for="lastname">Nom</label>
-        <input id="lastname" name="lastname" type="text" required minlength="2">
-    </fieldset>
-    <fieldset>
-        <label for="firstname">Prénom</label>
-        <input id="firstname" name="firstname" type="text" required minlength="2">
-    </fieldset>
-    <fieldset>
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required>
-    </fieldset>
-    <fieldset>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" type="text" required minlength="20" row="4" cols="50"></textarea>
-    </fieldset>
+<h1>Formulaire de contact</h1>
 
-    <button type="reset">Restaurer</button>
-    <button type="submit">Envoyer</button>
+<form #contactForm="ngForm" (ngSubmit)="contactForm.valid && onSubmit()">
+  <!-- Etat du formulaire -->
+
+  <div class="form-state">
+    @if (!contactForm.submitted) {
+    <p [ngClass]="{'hide-message': contactForm.valid}">Le formulaire doit être soumis</p>
+    } @if (!contactForm.valid) {
+    <p>Le formulaire contient des erreurs</p>
+    } @if (!contactForm.invalid) {
+    <p [ngStyle]="{ color: contactForm ? 'green' : 'black' }">
+      Le formulaire est valide
+    </p>
+    }
+  </div>
+
+  <!-- Champs lastname -->
+  <fieldset>
+    <label for="lastname">Nom</label>
+    <input
+      id="lastname"
+      name="lastname"
+      type="text"
+      [(ngModel)]="newMessage.lastname"
+      #lastname="ngModel"
+      required
+      minlength="2"
+      maxlength="15"
+    />
+  </fieldset>
+  <!-- Message d'erreurs de l'input lastname -->
+  @if (lastname.errors && contactForm.submitted) {
+  <div>
+    @if (lastname.errors['required']) {
+    <span>Le nom est requis</span>
+    } @if (lastname.errors['minlength']) {
+    <span>Le nom doit faire au moins de 2 caractères</span>
+    } @if (lastname.errors['maxlength']) {
+        <span>Le nom doit faire moins de 15 caractères</span>
+        }
+  </div>
+  }
+
+  <!-- Champs firstname -->
+  <fieldset>
+    <label for="firstname">Prénom</label>
+    <input
+      id="firstname"
+      name="firstname"
+      type="text"
+      [(ngModel)]="newMessage.firstname"
+      #firstname="ngModel"
+      required
+      minlength="2"
+      maxlength="20"
+    />
+  </fieldset>
+  <!-- Message d'erreurs de l'input lastname -->
+  @if (firstname.errors && contactForm.submitted) {
+  <div>
+    @if (firstname.errors['required']) {
+    <span>Le prénom est requis</span>
+    } @if (firstname.errors['minlength']) {
+        <span>Le prénom doit faire au moins 2 caractères</span>
+    }  @if (firstname.errors['maxlength']) {
+        <span>Le prénom doit faire moins de 15 caractères</span>
+        }
+  </div>
+  }
+
+  <!-- Champs email -->
+  <fieldset>
+    <label for="email">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      [(ngModel)]="newMessage.email"
+      #email="ngModel"
+      required
+      email
+    />
+  </fieldset>
+  <!-- Message d'erreurs de l'input email -->
+  @if (email.errors && contactForm.submitted) {
+  <div>
+    @if (email.errors['required']) {
+    <span>Le mail est requis</span>
+    } @if (email.errors['email']) {
+    <span>L'email est invalide</span>
+    }
+  </div>
+  }
+
+  <!-- Champs message -->
+  <fieldset>
+    <label for="message">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      type="text"
+      [(ngModel)]="newMessage.content"
+      #message="ngModel"
+      required
+      minlength="2"
+      maxlength="15"
+      row="5"
+      cols="50"
+    ></textarea>
+  </fieldset>
+  <!-- Message d'erreurs de l'input content -->
+  @if (message.errors && contactForm.submitted) {
+  <div>
+    @if (message.errors['required']) {
+    <span>Le contenu du message est requis</span>
+    } @if (message.errors['minlength']) {
+        <span>Le message doit comporter au moins 2 caractères</span>
+    }  @if (message.errors['maxlength']) {
+        <span>Le message ne doit pas dépasser 15 caractères</span>
+        }
+  </div>
+  }
+
+  <button type="reset">Restaurer</button>
+  <button type="submit">Envoyer</button>
 </form>
