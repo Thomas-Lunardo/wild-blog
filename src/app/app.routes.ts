@@ -5,8 +5,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 
 export const routes: Routes = [
-    { path: '', component: HomePageComponent},
-    { path: 'contact', component: ContactFormComponent},
     { path: 'article/:id', component: ArticlePageComponent},
+    { path: 'contact', component: ContactFormComponent},
+    { path: '', component: HomePageComponent},
     { path: '**', component: NotFoundComponent}
 ];
