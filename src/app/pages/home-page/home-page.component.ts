@@ -1,25 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
-interface Article {
-  id: number,
-  title: string;
-  author: string;
-  content: string;
-  image: string;
-  isPublished: boolean,
-  comment: string,
-  likes: number
-}
+import { Article } from '../../models/article.model';
+import { ArticlePageComponent } from "../article-page/article-page.component";
+import { ArticleComponent } from "../../components/article/article.component";
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ArticlePageComponent, ArticleComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
+
 export class HomePageComponent {
   
   articles: Article[] = [
@@ -31,7 +24,7 @@ export class HomePageComponent {
       image: 'https://via.placeholder.com/150x150',
       isPublished: true, 
       comment: '', 
-      likes: 120 
+      likes: 120
     },
     { 
       id: 2,
@@ -84,5 +77,4 @@ export class HomePageComponent {
       likes: 200 
     }
   ];
-
 }
