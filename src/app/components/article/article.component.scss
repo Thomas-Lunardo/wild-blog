@@ -5,10 +5,10 @@
 
 $backgroundColorCard : rgb(233, 223, 214);
 $borderRadiusCard : 10px;
-$widthArticle : 25%;
+$widthArticle : 75%;
 $paddingArticle : 18px;
 $boxShadowArticle: 0px 4px 9px 3px #babdc0;
-$marginArticle: 20px 3em;
+$marginArticle: 20px 1.5em;
 
 // ***** BUTTON *******
 
@@ -66,13 +66,6 @@ $heightButton : 2em;
 // ********************************
 
 // *****************************************
-
-.article-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
 
 article {
     display: flex;
@@ -157,7 +150,7 @@ article input {
 }
 
 .popular-article {
-    font-size: 1.3em;
+    font-size: 1em;
     text-shadow: 2px 2px 5px gray;
     font-weight: bold;
   }
