@@ -2,13 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Article } from '../../models/article.model';
-import { ArticlePageComponent } from "../article-page/article-page.component";
 import { ArticleComponent } from "../../components/article/article.component";
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule, RouterLink, ArticlePageComponent, ArticleComponent],
+  imports: [CommonModule, RouterLink, ArticleComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -38,9 +37,9 @@ export class HomePageComponent {
     },
     { 
       id: 3,
-      title: 'Pourquoi TypeScript est essentiel ?', 
+      title: 'Pourquoi Symfony est essentiel ?', 
       author: 'Charlie', 
-      content: 'TypeScript apporte de la robustesse...', 
+      content: 'Symfony apporte de la robustesse...', 
       image: 'https://via.placeholder.com/150x150',
       isPublished: true, 
       comment: '', 
@@ -48,9 +47,9 @@ export class HomePageComponent {
     },
     { 
       id: 4,
-      title: 'Pourquoi TypeScript est essentiel ?', 
+      title: 'Pourquoi Toto est essentiel ?', 
       author: 'Charlie', 
-      content: 'TypeScript apporte de la robustesse...', 
+      content: 'Toto apporte de la robustesse...', 
       image: 'https://via.placeholder.com/150x150',
       isPublished: true, 
       comment: '', 
@@ -77,4 +76,10 @@ export class HomePageComponent {
       likes: 200 
     }
   ];
+
+  messageFromArticle: string = '';
+
+  handleNotification(message: string) {
+    this.messageFromArticle = message;
+  }
 }

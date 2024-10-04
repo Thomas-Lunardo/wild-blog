@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Comment } from '@angular/compiler';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Article } from '../../models/article.model';
 import { RouterLink } from '@angular/router';
 
@@ -14,4 +13,10 @@ import { RouterLink } from '@angular/router';
 export class ArticleComponent {
 
   @Input() article!: Article;
+
+  @Output() notifyHomePage: EventEmitter<string> = new EventEmitter<string>();
+
+  sendNotification() {
+    this.notifyHomePage.emit(`L\'article "${this.article.title}" vient d\'être liké.`);
+  }
 }
