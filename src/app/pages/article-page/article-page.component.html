@@ -1,21 +1,23 @@
-<div class="article-container">
-    <button (click)="togglePublication()" class="btn-published">
-      {{ article.isPublished ? "Publier l'article" : "Dépublier l'article" }}
-    </button>
-    <p>{{ article.isPublished ? "Article publié" : "Article non publié"}}</p>
-
-    @if (article.isPublished) {
-    <article>
-      <img [src]="article.image" alt="photo de {{ article.title }}" />
-      <h2>L'id de l'article : {{articleId}}</h2>
-      <h2>{{ article.title }}</h2>
-      <h3>{{ article.author }}</h3>
-      <p>{{ article.content }}</p>
-      <hr>
-      <label for="">Entrer votre commentaire :</label>
-      <input type="text" [(ngModel)]="article.comment">
-      <p>Commentaire :</p>
-      <p>{{ article.comment }}</p>
-    </article>
-    }
-  </div>
+@if (article) {
+  <div class="article-container">
+      <button (click)="togglePublication()" class="btn-published">
+        {{ article.isPublished ? "Publier l'article" : "Dépublier l'article" }}
+      </button>
+      <p>{{ article.isPublished ? "Article publié" : "Article non publié"}}</p>
+  
+      @if (article.isPublished) {
+      <article>
+        <img [src]="article.image" alt="photo de {{ article.title }}" />
+        <h2>L'id de l'article : {{articleId}}</h2>
+        <h2>{{ article.title }}</h2>
+        <h3>{{ article.author }}</h3>
+        <p>{{ article.content }}</p>
+        <hr>
+        <label for="">Entrer votre commentaire :</label>
+        <input type="text" [(ngModel)]="article.comment">
+        <p>Commentaire :</p>
+        <p>{{ article.comment }}</p>
+      </article>
+      }
+      </div>
+}

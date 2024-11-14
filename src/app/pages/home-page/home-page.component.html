@@ -1,16 +1,7 @@
 <main class="main">
   <div>
     <p>{{ messageFromArticle }}</p>
-    <div class="article-container">
-      @for (article of articles; track $index) {
-      <app-article
-        [article]="article"
-        (notifyHomePage)="handleNotification($event)"
-      >
-      </app-article>
-      } @empty {
-      <p>Aucun article disponible</p>
-      }
-    </div>
+        <app-article-list></app-article-list>
   </div>
 </main>
+
