@@ -1,0 +1,156 @@
+// /******* card varables */
+
+// **** CARD **********
+
+$backgroundColorCard : rgb(233, 223, 214);
+$borderRadiusCard : 10px;
+$widthArticle : 65%;
+$paddingArticle : 18px;
+$boxShadowArticle: 0px 4px 9px 3px #babdc0;
+$marginArticle: 20px 1.5em;
+
+// ***** BUTTON *******
+
+$widthButton : 90%;
+$backgroundColorButton : rgb(44, 19, 85);
+$colorButton : rgb(248, 243, 243);
+$borderRadiusButton : 3px;
+$paddingButton : 3px 10px;
+$marginButton : 8px auto;
+$heightButton : 2em;
+
+// ********************************
+
+// *********** mixin **************
+
+// **** ARTICLE **********
+
+@mixin myArticleCard(
+    $widthArticle,
+    $backgroundColorCard,
+    $borderRadiusCard,
+    $paddingArticle,
+    $marginArticle,
+    $boxShadowArticle,
+) {
+    width: $widthArticle;
+    background-color: $backgroundColorCard;
+    border-radius: $borderRadiusCard;
+    padding: $paddingArticle;
+    margin: $marginArticle;
+    box-shadow: $boxShadowArticle;
+}
+
+// ***** BUTTON *******
+
+@mixin myButtonCard(
+    $widthButton,
+    $backgroundColorButton,
+    $colorButton,
+    $borderRadiusButton,
+    $paddingButton,
+    $marginButton,
+    $heightBtn,
+) {
+    width: $widthButton;
+    background-color: $backgroundColorButton;
+    color: $colorButton;
+    border-radius: $borderRadiusButton;
+    padding: $paddingButton;
+    margin: $marginButton;
+    height: $heightButton;
+}
+
+
+// ********************************
+
+// *****************************************
+
+.article-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.article-link article {
+    display: flex;
+    flex-direction: column;
+    transition: all 0.6s ease-in-out;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    @include myArticleCard(
+        ($widthArticle),
+        ($backgroundColorCard),
+        ($borderRadiusCard),
+        ($paddingArticle),
+        ($marginArticle),
+        ($boxShadowArticle),
+    )
+}
+
+article img {
+    border-radius: $borderRadiusButton;
+    box-shadow: $boxShadowArticle;
+    margin-bottom: 12px;
+    opacity: 80%;
+    width: 75%;
+    margin: 0 auto 18px;
+}
+
+article h2 {
+    text-align: center;
+    margin: 6px 0 18px;
+}
+
+article h3 {
+    text-align: center;
+    margin: 6px 0 18px;
+    font-style: italic;
+}
+
+article p {
+    line-height: 1.3em;
+    margin: 12px auto;
+}
+
+article hr {
+    margin-top: 25px;
+}
+
+article label {
+    margin-top: 23px;
+}
+
+article input {
+    border-radius: 5px;
+    height: 2em;
+    margin: 20px;
+}
+
+.btn-published {
+    transition: all 0.6s ease-in-out;
+
+    @include myButtonCard(
+        ($widthArticle),
+        ($backgroundColorCard),
+        ($borderRadiusCard),
+        ($paddingArticle),
+        ($marginArticle),
+        ($boxShadowArticle),
+        ($heightButton)
+    );
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+.popular-article {
+    font-size: 1em;
+    text-shadow: 2px 2px 5px gray;
+    font-weight: bold;
+  }
