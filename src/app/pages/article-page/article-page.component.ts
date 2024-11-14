@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Article } from '../../models/article.model';
 import { Observable, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-article-page',
@@ -16,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
 export class ArticlePageComponent {
 
   private route: ActivatedRoute = inject(ActivatedRoute);
-  private http = inject(HttpClient);
+  private apiService = inject(ApiService);
   articleId!: number;
   private articleSubscription!: Subscription;
 
@@ -25,7 +26,7 @@ export class ArticlePageComponent {
       this.articleId = Number(params.get('id'));
     });
 
-    this.articleSubscription = this.getArticleById(this.articleId).subscribe((data) => {
+    this.articleSubscription = this.apiService.getArticleById(this.articleId).subscribe((data) => {
       console.log('step 1: récupérer le http client', data);
       this.article = data;
       console.log('step 2: récupérer data dans this article', this.article);
@@ -40,10 +41,5 @@ export class ArticlePageComponent {
 
   ngOnDestroy() {
     this.articleSubscription.unsubscribe();
-  }
-
-  getArticleById(id: number) {
-    return this.http.get<Article>(`http://localhost:3000/articles/${id}`);
-    ;
   }
 }
