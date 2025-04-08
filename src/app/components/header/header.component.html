@@ -1,5 +1,14 @@
 <nav>
     <a [routerLink]="['/']">Accueil</a>
+    @if (isLoggedIn() && isAdmin()) {
+        <a [routerLink]="['/admin']">Dashboard admin</a>
+    }
     <a [routerLink]="['/contact']">Contact</a>
-    <a [routerLink]="['/signup']">Inscription</a>
+    @if (!isLoggedIn()) {
+        <a [routerLink]="['/signup']">Inscription</a>
+        <a [routerLink]="['/login']">Connexion</a>
+    } @else {
+        <a [routerLink]="['/profile']">Mon profil</a>
+        <a (click)="logout()">Se déconnecter</a>
+    }
 </nav>
